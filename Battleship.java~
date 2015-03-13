@@ -39,16 +39,29 @@ public class Battleship
     System.out.println(eigthRow);
     System.out.println(bottomBorder);
     
-    // setup the ships
+   /* // setup the ships
     System.out.println("What coordinate do you want to start at?");
     String coor1 = input.nextLine();
     System.out.println("What coordinate do you want to end at?");
     String coor2 = input.nextLine();
                      
     ShipSetup setup = new ShipSetup();
-    setup.shipSetup(firstRow,secondRow,thirdRow,fourthRow,fifthRow,sixthRow,seventhRow,eigthRow,coor1,coor2);
+    setup.shipSetup(firstRow,secondRow,thirdRow,fourthRow,fifthRow,sixthRow,seventhRow,eigthRow,coor1,coor2); 
+    */
     
-    
+    String[][] board = new String[7][7];  // 2d array for game board.
+    String xFill = "ABCDEFGH";
+    String yFill = "12345678";
+    for (int i = 0; i < 8; i++)
+    {
+      for (int j = 0; j < 8; i++)
+      {
+        board[i][j] = xFill.substring(j,j+1) + yFill.substring(i,i+1);
+      }
+    }
+      
+      
+    System.out.println(board);
     
  /* System.out.println("____________________________________________________ "); // border
     System.out.println("|   |  A  |  B  |  C  |  D  |  E  |  F  |  G  |  H  |");  // x-axis
