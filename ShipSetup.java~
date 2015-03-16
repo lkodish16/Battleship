@@ -1,45 +1,54 @@
+import java.util.Scanner;
+
 public class ShipSetup
-{ // pass the game board so that you can modify it 
-  // take two coordinates that will act as the range for the ship's placement
-  // compare the two coordinates to see whether the ship is placed vertically or horizontally
-  // 
-  
-  public void shipSetup(String one, String two, 
-                        String three, String four, String five, String six, 
-                        String seven, String eight, String coor1, String coor2)
+{ 
+  public String shipSetup(String board, int shipNum)
   {
-    String topBorder = "____________________________________________________ ";
-    String yAxis = "|   |  A  |  B  |  C  |  D  |  E  |  F  |  G  |  H  |";
-    String border = "|---|-----------------------------------------------|"; 
-    String firstRow = one;
-    String secondRow = two;
-    String thirdRow = three;
-    String fourthRow = four;
-    String fifthRow = five;
-    String sixthRow = six;
-    String seventhRow = seven;
-    String eigthRow = eight;
-    String bottomBorder = "|___________________________________________________|"; 
-    String coordinate1 = coor1.trim();  // trim ends of string for substring purposes
-    String coordinate2 = coor2.trim();  // trim ends of string for substring purposes
+    // initialize the scanner
+    Scanner input = new Scanner(System.in);
+    int count = 0;
     
-    // find out if ship will be vertical or horizontal
-    boolean vertical = false;
-    boolean horizontal = false;
-    if (coordinate1.substring(0,1).equals(coordinate2.substring(0,1)) &&
-        !coordinate1.substring(1,2).equals(coordinate2.substring(1,2)))
+    // ask the player where he wants to place his ships, and then mark them on the board with XX. 
+    while (count < shipNum)
     {
-      vertical = true;
+      System.out.println("What coordinate do you want to place ship " + (count+1) + " at? (Ex. A1, B3)");
+      String coord = input.nextLine();
+      
+      for (int i = 115; i < board.length()-2; i++)
+      {
+        if (board.substring(i,i+2).equals(coord))
+        {
+          board = board.replaceAll(coord, "XX");
+          count++;
+        }
+      }
     }
-    else if (!coordinate1.substring(0,1).equals(coordinate2.substring(0,1)) &&
-        coordinate1.substring(1,2).equals(coordinate2.substring(1,2)))
+    System.out.println("\nYour ships have been placed on the game board!");
+    return board;
+  }
+  
+  public String enemySetup(String enemyBoard, int shipNum)
+  {
+    int count = 0;
+    String[] boardArr = {"A1", "B1", "C1", "D1", "E1",
+      "A2", "B2", "C2", "D2", "E2",
+      "A3", "B3", "C3", "D3", "E3",
+      "A4", "B4", "C4", "D4", "E4",
+      "A5", "B5", "C5", "D5", "E5"};
+    
+    while (count < shipNum)
     {
-      horizontal = true;
-    }
-    else
-    {
-      return;
+      int randomPlace = (int)(Math.random()*24);
+      if (!boardArr[randomPlace].equals("XX"))
+      {
+        // find where randomPlace is on enemyBoard and replace it
+        boardArr[randomPlace] = "XX";
+      }
     }
   }
+  return enemyBoard;
 } 
-  
+
+
+
+

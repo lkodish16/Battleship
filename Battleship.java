@@ -17,6 +17,18 @@ public class Battleship
                        "| 5 |  A5 |  B5 |  C5 |  D5 |  E5 |\n" +
                        "|_________________________________|\n"; 
     
+    // template for enemy board.
+    String enemyBoard = "___________________________________\n" + 
+                        "|   |  A  |  B  |  C  |  D  |  E  |\n" +  
+                        "|---|-----------------------------|\n" + 
+                        "| 1 |  A1 |  B1 |  C1 |  D1 |  E1 |\n" +
+                        "| 2 |  A2 |  B2 |  C2 |  D2 |  E2 |\n" + 
+                        "| 3 |  A3 |  B3 |  C3 |  D3 |  E3 |\n" +
+                        "| 4 |  A4 |  B4 |  C4 |  D4 |  E4 |\n" +
+                        "| 5 |  A5 |  B5 |  C5 |  D5 |  E5 |\n" +
+                        "|_________________________________|\n"; 
+    
+    
     // print out game board.
     System.out.println(gameBoard);
     /*
@@ -39,17 +51,18 @@ public class Battleship
     System.out.println(bottomBorder);
     */
     
-   /* // setup the ships
-    System.out.println("What coordinate do you want to start at?");
-    String coor1 = input.nextLine();
-    System.out.println("What coordinate do you want to end at?");
-    String coor2 = input.nextLine();
-                     
+    // ask player number of ships he wants to play the game with.
+    System.out.println("How many ships do you want to play with? (Enter a number)");
+    int shipNum = input.nextInt();
+    
+    // create a ShipSetup object and run the shipSetup method to place ships on the board.
     ShipSetup setup = new ShipSetup();
-    setup.shipSetup(firstRow,secondRow,thirdRow,fourthRow,fifthRow,sixthRow,seventhRow,eigthRow,coor1,coor2); 
-    */
-        
+    gameBoard = setup.shipSetup(gameBoard, shipNum); 
     System.out.println(gameBoard);
+    // call enemySetup method to place ships on enemy board at random locations.
+    enemyBoard = setup.enemySetup(enemyBoard, shipNum);
+    
+    
     
  /* System.out.println("____________________________________________________ "); // border
     System.out.println("|   |  A  |  B  |  C  |  D  |  E  |  F  |  G  |  H  |");  // x-axis
