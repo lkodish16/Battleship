@@ -61,7 +61,6 @@ public class Battleship
     System.out.println(gameBoard);
     // call enemySetup method to place ships on enemy board at random locations.
     enemyBoard = setup.enemySetup(enemyBoard, shipNum);
-    System.out.println(enemyBoard);
     
     
     

@@ -62,6 +62,9 @@ public class Battleship
     // call enemySetup method to place ships on enemy board at random locations.
     enemyBoard = setup.enemySetup(enemyBoard, shipNum);
     
+    // until someone wins the game, have alternating methods for player and AI turns
+    PlayerTurn friendlyTurn = new PlayerTurn();
+    enemyBoard = friendlyTurn.playerTurn(enemyBoard);
     
     
  /* System.out.println("____________________________________________________ "); // border
