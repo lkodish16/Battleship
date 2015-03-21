@@ -30,6 +30,7 @@ public class ShipSetup
   public String enemySetup(String enemyBoard, int shipNum)
   {
     int count = 0;
+    String enemyCoord = ""; // string that holds the value of the array that will be placed.
     String[] boardArr = {"A1", "B1", "C1", "D1", "E1",
       "A2", "B2", "C2", "D2", "E2",
       "A3", "B3", "C3", "D3", "E3",
@@ -41,13 +42,23 @@ public class ShipSetup
       int randomPlace = (int)(Math.random()*24);
       if (!boardArr[randomPlace].equals("XX"))
       {
-        // find where randomPlace is on enemyBoard and replace it
+        // find where randomPlace is on enemyBoard and replace it with XX in the enemyBoard string
+        enemyCoord = boardArr[randomPlace];
+        for (int i = 115; i < enemyBoard.length()-2; i++)
+        {
+          if (enemyBoard.substring(i,i+2).equals(enemyCoord))
+          {
+            enemyBoard = enemyBoard.replaceAll(enemyCoord, "XX");
+            count++;
+          }
+        }
         boardArr[randomPlace] = "XX";
       }
     }
+    return enemyBoard;  // return the enemyBoard after it's had the enemy ships placed on it. 
   }
-  return enemyBoard;
 } 
+
 
 
 

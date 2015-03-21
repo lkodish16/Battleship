@@ -4,10 +4,23 @@ public class Battleship
 {
   public static void main(String args[])
   {
-    Scanner input = new Scanner(System.in);
+   Scanner input = new Scanner(System.in);
+   PlayerTurn friendlyTurn = new PlayerTurn();
+   EnemyTurn enemyTurn = new EnemyTurn();
+   Boolean playerWin = false;
+   Boolean enemyWin = false;
     // parts of the game board (5x5 game board, 36x9 characters)
-   
-    String gameBoard = "___________________________________\n" + 
+   String defaultBoard = "___________________________________\n" + 
+                       "|   |  A  |  B  |  C  |  D  |  E  |\n" +  
+                       "|---|-----------------------------|\n" + 
+                       "| 1 |  A1 |  B1 |  C1 |  D1 |  E1 |\n" +
+                       "| 2 |  A2 |  B2 |  C2 |  D2 |  E2 |\n" + 
+                       "| 3 |  A3 |  B3 |  C3 |  D3 |  E3 |\n" +
+                       "| 4 |  A4 |  B4 |  C4 |  D4 |  E4 |\n" +
+                       "| 5 |  A5 |  B5 |  C5 |  D5 |  E5 |\n" +
+                       "|_________________________________|\n"; 
+    
+    String playerBoard = "___________________________________\n" + 
                        "|   |  A  |  B  |  C  |  D  |  E  |\n" +  
                        "|---|-----------------------------|\n" + 
                        "| 1 |  A1 |  B1 |  C1 |  D1 |  E1 |\n" +
@@ -30,7 +43,7 @@ public class Battleship
     
     
     // print out game board.
-    System.out.println(gameBoard);
+    System.out.println(playerBoard);
     /*
     System.out.println(topBorder);
     System.out.println(firstRow);
@@ -57,14 +70,24 @@ public class Battleship
     
     // create a ShipSetup object and run the shipSetup method to place ships on the board.
     ShipSetup setup = new ShipSetup();
-    gameBoard = setup.shipSetup(gameBoard, shipNum); 
-    System.out.println(gameBoard);
+    playerBoard = setup.shipSetup(playerBoard, shipNum); 
+    System.out.println(playerBoard);
     // call enemySetup method to place ships on enemy board at random locations.
     enemyBoard = setup.enemySetup(enemyBoard, shipNum);
+    System.out.println(enemyBoard);
     
     // until someone wins the game, have alternating methods for player and AI turns
-    PlayerTurn friendlyTurn = new PlayerTurn();
-    enemyBoard = friendlyTurn.playerTurn(enemyBoard);
+    while (playerWin == false || enemyWin == false)
+    {
+    enemyBoard = friendlyTurn.playerTurn(enemyBoard, defaultBoard);
+    System.out.println(playerBoard);
+    playerBoard = enemyTurn.enemyTurn(playerBoard, defaultBoard);
+    System.out.println(enemyBoard);
+    }
+    
+
+
+                       
     
     
  /* System.out.println("____________________________________________________ "); // border
