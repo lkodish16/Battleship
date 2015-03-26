@@ -1,4 +1,3 @@
-
 public class Win {
   
   public Boolean playerWin(String enemyBoard)
@@ -14,6 +13,7 @@ public class Win {
     }
     if (enemyShipCount == 0)
     {
+      System.out.println("You have won the game!");
       return true;
     }
     else
@@ -35,6 +35,7 @@ public class Win {
     }
     if (playerShipCount == 0)
     {
+      System.out.println("The enemy has won the game.");
       return true;
     }
     else

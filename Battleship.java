@@ -74,15 +74,20 @@ public class Battleship
     System.out.println(playerBoard);
     // call enemySetup method to place ships on enemy board at random locations.
     enemyBoard = setup.enemySetup(enemyBoard, shipNum);
-    System.out.println(enemyBoard);
     
     // until someone wins the game, have alternating methods for player and AI turns
-    while (playerWin == false || enemyWin == false)
+    Win winCheck = new Win();
+    while (playerWin == false && enemyWin == false)
     {
     enemyBoard = friendlyTurn.playerTurn(enemyBoard, defaultBoard);
+    playerWin = winCheck.playerWin(enemyBoard);
+    if (playerWin == true)  // if the player has already won...
+    {
+      break;  // break out of the while loop so the enemy can't also win with their turn.
+    }
     System.out.println(playerBoard);
     playerBoard = enemyTurn.enemyTurn(playerBoard, defaultBoard);
-    System.out.println(enemyBoard);
+    enemyWin = winCheck.enemyWin(playerBoard);
     }
     
 
