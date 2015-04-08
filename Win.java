@@ -43,7 +43,7 @@ public class Win {
     }
   }
   
-  public Boolean playerOneWin(String playerTwoBoard)
+  public boolean playerOneWin(String playerTwoBoard)
   {
     int playerTwoShipCount = 0;
     // count player ships to see if enemy has won. 
@@ -65,20 +65,20 @@ public class Win {
     }
   }
   
-  public Boolean enemyWin(String playerBoard)
+  public Boolean playerTwoWin(String playerOneBoard)
   {
     int playerShipCount = 0;
     // count player ships to see if enemy has won. 
-    for (int i = 0; i < playerBoard.length()-2; i++)
+    for (int i = 0; i < playerOneBoard.length()-2; i++)
     {
-      if (playerBoard.substring(i,i+2).equals("XX"))
+      if (playerOneBoard.substring(i,i+2).equals("XX"))
       {
         playerShipCount++;
       }
     }
     if (playerShipCount == 0)
     {
-      System.out.println("The enemy has won the game.");
+      System.out.println("Player 2 has won the game.");
       return true;
     }
     else
@@ -87,3 +87,4 @@ public class Win {
     }
   }
 }
+
