@@ -24,7 +24,7 @@ public class PlayerTurn {
     {
       playerTurn(enemyBoard, defaultBoard, player);  // call recursive method until the player inputs a legitimate coordinate.
     }
-      
+    
     int coordLocation = defaultBoard.indexOf(coord);  // find the location of the coordinate on a blank gameboard.
     int enemyShipsLeft = 0;  
     

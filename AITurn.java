@@ -32,9 +32,14 @@ public class AITurn {
         shipsLeft++;
       }
     }
-    System.out.println("You have " + shipsLeft + " ships left.");
-    return playerBoard;
+    if (shipsLeft == 1)
+    {
+      System.out.println("You have " + shipsLeft + " ship left.");
+    }
+    else
+    {
+      System.out.println("You have " + shipsLeft + " ships left.");
+    }
+      return playerBoard;
   }
-  
-  
 }
