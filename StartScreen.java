@@ -6,6 +6,19 @@ public class StartScreen
   {
     Scanner input = new Scanner(System.in);
     boolean realPlayer = false;
+    
+    System.out.println("                                WELCOME TO BATTLESHIP!");
+    System.out.println("                                      # #  ( )\n" + 
+"                                   ___#_#___|__\n" +
+"                               _  |____________|  _ \n" +
+"                        _=====| | |            | | |==== \n" +
+"                =====| |.---------------------------. | |====\n" +
+"  <--------------------'   .  .  .  .  .  .  .  .   '--------------/\n" +
+"    \\                                                             /\n" +
+"     \\___________________________________________SS_Kiang________/\n" +
+"  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n" +
+"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n" +
+"   wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
     System.out.println("Enter A to play with a real player.");
     System.out.println("Enter B to play with an AI player.");
     String answer = input.nextLine().toLowerCase();
