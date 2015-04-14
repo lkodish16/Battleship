@@ -19,9 +19,10 @@ public class StartScreen
 "  wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n" +
 "wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww\n" +
 "   wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww");
-    System.out.println("RULES: *You will place ships on your game board, as will your opponent.\n" 
-                         + " *You destroy enemy ships by guessing what coordinates they're on.\n"
-                         + " *You and your opponent alternate turns guessing.\n"
+    System.out.println("RULES: \n"
+                         + " *You will place ships on your game board, as will your opponent.\n" 
+                         + " *You destroy enemy ships by guessing what coordinates your enemy has placed ships on.\n"
+                         + " *You and your opponent will alternate turns guessing.\n"
                          + " *You win the game by destroying all of your enemy's ships.\n"
                          + "You can play with either a real player or a computer AI!");
     System.out.println("Enter A to play with a real player.");

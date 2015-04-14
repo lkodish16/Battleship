@@ -46,10 +46,17 @@ public class PlayerTurn {
       }
     }
     
-    System.out.println("The enemy has " + enemyShipsLeft + " ships left.");
+    if (enemyShipsLeft == 1)
+    {
+      System.out.println("The enemy has " + enemyShipsLeft + " ships left.");
+    }
+    else
+    {
+      System.out.println("The enemy has " + enemyShipsLeft + " ships left.");
+    }
     return enemyBoard;
   }
 }
-
-
-
+  
+  
+  

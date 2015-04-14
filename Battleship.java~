@@ -126,8 +126,14 @@ public class Battleship
         {
           break;  // break out of the while loop so the enemy can't also win with their turn.
         }
-        System.out.println(playerBoard);
+        System.out.println("It is now the enemy's turn to attack...");
+        try {  // credit to Konrad Garus on StackOverflow
+          Thread.sleep(2000);                 // wait 2000 milliseconds (2 seconds)
+        } catch(InterruptedException ex) {
+          Thread.currentThread().interrupt();
+        }
         playerBoard = robotTurn.enemyTurn(playerBoard, defaultBoard);  // otherwise go ahead with the enemy's turn.
+        System.out.println(playerBoard);
         enemyWin = winCheck.enemyWin(playerBoard);
       }
     }

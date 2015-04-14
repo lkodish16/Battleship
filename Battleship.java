@@ -88,7 +88,7 @@ public class Battleship
       {
         System.out.println(".............................................");
       }
-      System.out.println("Player 1, yourr ships have been set.");
+      System.out.println("Player 1, your ships have been set.");
       System.out.println("Ok Player 2, you can now place your ships.");
       playerTwoBoard = setup.shipSetup(playerTwoBoard, shipNum);
       for (int i = 0; i < 25; i++)
@@ -126,14 +126,14 @@ public class Battleship
         {
           break;  // break out of the while loop so the enemy can't also win with their turn.
         }
-        System.out.println(playerBoard);
         System.out.println("It is now the enemy's turn to attack...");
         try {  // credit to Konrad Garus on StackOverflow
-          Thread.sleep(2000);                 //1000 milliseconds is one second.
+          Thread.sleep(2000);                 // wait 2000 milliseconds (2 seconds)
         } catch(InterruptedException ex) {
           Thread.currentThread().interrupt();
         }
         playerBoard = robotTurn.enemyTurn(playerBoard, defaultBoard);  // otherwise go ahead with the enemy's turn.
+        System.out.println(playerBoard);
         enemyWin = winCheck.enemyWin(playerBoard);
       }
     }

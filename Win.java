@@ -78,7 +78,7 @@ public class Win {
     }
     if (playerShipCount == 0)
     {
-      System.out.println("Player 2 has won the game.");
+      System.out.println("Player 2 has won the game!");
       return true;
     }
     else
